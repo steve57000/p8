@@ -1,0 +1,1 @@
+Ajouter ici echantillon_a_classer2.xlsx et le fichier ou tableau des étiquettes réelles de l’équipe Louise; ils sont nécessaires pour exécuter la démonstration demandée et comparer les résultats.

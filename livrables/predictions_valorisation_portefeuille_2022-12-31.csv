@@ -1,0 +1,276 @@
+﻿id_bien,adresse_numero,adresse_nom_voie,code_postal,nom_commune,type_local,surface_reelle_bati,prix_m2_estime,valeur_estimee_2022_12_31
+1,127,RUE SAINT-DENIS,75001,Paris 1er Arrondissement,Appartement,25,15264.84,381621.08
+2,62,RUE NOTRE-DAME DE NAZARETH,75003,Paris 3e Arrondissement,Appartement,22,14886.62,327505.69
+3,62,RUE DE TURENNE,75003,Paris 3e Arrondissement,Appartement,65,14884.84,967514.64
+4,32,AV GEORGE V,75008,Paris 8e Arrondissement,Appartement,74,13008.63,962638.82
+5,152,BD HAUSSMANN,75008,Paris 8e Arrondissement,Appartement,22,13010.52,286231.35
+6,152,BD HAUSSMANN,75008,Paris 8e Arrondissement,Appartement,35,13010.05,455351.58
+7,52,RUE DES GRAVILLIERS,75003,Paris 3e Arrondissement,Appartement,24,14886.54,357276.95
+8,208,RUE SAINT MAUR,75010,Paris 10e Arrondissement,Appartement,60,11396.08,683764.84
+9,142,RUE DE COURCELLES,75017,Paris 17e Arrondissement,Appartement,11,11988.42,131872.61
+10,52,RUE LAMARCK,75018,Paris 18e Arrondissement,Appartement,13,11176.02,145288.29
+11,142,RUE LEGENDRE,75017,Paris 17e Arrondissement,Appartement,28,11987.85,335659.85
+12,121,RUE MARCADET,75018,Paris 18e Arrondissement,Appartement,19,11175.84,212340.88
+13,212,RUE DU FBG ST MARTIN,75010,Paris 10e Arrondissement,Appartement,45,11396.56,512845.04
+14,102,RUE DOUDEAUVILLE,75018,Paris 18e Arrondissement,Appartement,35,11175.34,391136.84
+15,230,RUE DU FAUBOURG SAINT HONORE,75008,Paris 8e Arrondissement,Appartement,23,13010.48,299241.03
+16,212,BD DE CHARONNE,75020,Paris 20e Arrondissement,Appartement,102,10368.02,1057537.58
+17,124,RUE VIEILLE DU TEMPLE,75003,Paris 3e Arrondissement,Appartement,93,14883.68,1384182.28
+18,212,RUE LA FAYETTE,75010,Paris 10e Arrondissement,Appartement,40,11396.72,455868.61
+19,72,BD DE LA VILLETTE,75019,Paris 19e Arrondissement,Appartement,96,10051.54,964947.85
+20,42,RUE MANIN,75019,Paris 19e Arrondissement,Appartement,39,10053.14,392072.27
+21,42,RUE ORDENER,75018,Paris 18e Arrondissement,Appartement,44,11175.06,491702.57
+22,72,RUE DE CLERY,75002,Paris 2e Arrondissement,Appartement,44,13886.45,611003.87
+23,72,RUE CARDINET,75017,Paris 17e Arrondissement,Appartement,11,11988.42,131872.61
+24,52,RUE LEPIC,75018,Paris 18e Arrondissement,Appartement,48,11174.93,536396.83
+25,32,RUE DES ENVIERGES,75020,Paris 20e Arrondissement,Appartement,16,10370.50,165927.96
+26,212,RUE MARCADET,75018,Paris 18e Arrondissement,Appartement,46,11175.00,514049.82
+27,32,PL ST FERDINAND,75017,Paris 17e Arrondissement,Appartement,74,11986.32,886987.44
+28,52,RUE SAUSSURE,75017,Paris 17e Arrondissement,Appartement,72,11986.38,863019.61
+29,62,RUE DE CLICHY,75009,Paris 9e Arrondissement,Appartement,60,12434.07,746044.36
+30,92,RUE DU FBG SAINT DENIS,75010,Paris 10e Arrondissement,Appartement,16,11397.48,182359.62
+31,52,RUE CHAMPIONNET,75018,Paris 18e Arrondissement,Appartement,16,11175.93,178814.87
+32,182,RUE SAINT MAUR,75010,Paris 10e Arrondissement,Appartement,40,11396.72,455868.61
+33,32,RUE MEDERIC,75017,Paris 17e Arrondissement,Appartement,55,11986.95,659282.29
+34,229,RUE DU FBG ST MARTIN,75010,Paris 10e Arrondissement,Appartement,25,11397.19,284929.78
+35,42,RUE DE MIROMESNIL,75008,Paris 8e Arrondissement,Appartement,103,13007.58,1339781.01
+36,120,QUAI DE JEMMAPES,75010,Paris 10e Arrondissement,Appartement,22,11397.29,250740.30
+37,32,RUE LAUGIER,75017,Paris 17e Arrondissement,Appartement,46,11987.25,551413.55
+38,32,RUE FEUTRIER,75018,Paris 18e Arrondissement,Appartement,20,11175.80,223516.10
+39,129,RUE DU FBG SAINT DENIS,75010,Paris 10e Arrondissement,Appartement,22,11397.29,250740.30
+40,123,RUE D ABOUKIR,75002,Paris 2e Arrondissement,Appartement,13,13887.65,180539.45
+41,120,RUE VIEILLE DU TEMPLE,75003,Paris 3e Arrondissement,Appartement,25,14886.50,372162.45
+42,112,RUE MARCADET,75018,Paris 18e Arrondissement,Appartement,32,11175.43,357613.81
+43,128,RUE PELLEPORT,75020,Paris 20e Arrondissement,Appartement,38,10369.86,394054.78
+44,72,RUE AMPERE,75017,Paris 17e Arrondissement,Appartement,12,11988.39,143860.63
+45,42,BD ORNANO,75018,Paris 18e Arrondissement,Appartement,35,11175.34,391136.84
+46,32,RUE DE SAMBRE ET MEUSE,75010,Paris 10e Arrondissement,Appartement,32,11396.97,364703.01
+47,32,RUE D HAUTEVILLE,75010,Paris 10e Arrondissement,Appartement,21,11397.32,239343.68
+48,32,RUE MEDERIC,75017,Paris 17e Arrondissement,Appartement,48,11987.18,575384.85
+49,42,RUE ALPHONSE PENAUD,75020,Paris 20e Arrondissement,Appartement,26,10370.21,269625.44
+50,125,RUE CHAMPIONNET,75018,Paris 18e Arrondissement,Appartement,15,11175.96,167639.41
+51,122,BD HAUSSMANN,75008,Paris 8e Arrondissement,Appartement,42,13009.79,546411.24
+52,52,RUE NOTRE-DAME DE LORETTE,75009,Paris 9e Arrondissement,Appartement,105,12432.52,1305414.10
+53,128,RUE DU FBG ST MARTIN,75010,Paris 10e Arrondissement,Appartement,25,11397.19,284929.78
+54,230,RUE MARCADET,75018,Paris 18e Arrondissement,Appartement,13,11176.02,145288.29
+55,120,AV DE CLICHY,75017,Paris 17e Arrondissement,Appartement,39,11987.48,467511.90
+56,32,RUE D ABOUKIR,75002,Paris 2e Arrondissement,Appartement,61,13885.79,847033.46
+57,32,RUE DE LANCRY,75010,Paris 10e Arrondissement,Appartement,42,11396.65,478659.37
+58,112,RUE DAMREMONT,75018,Paris 18e Arrondissement,Appartement,57,11174.65,636955.27
+59,52,RUE DE SAINTONGE,75003,Paris 3e Arrondissement,Appartement,39,14885.92,580550.80
+60,32,RUE FEUTRIER,75018,Paris 18e Arrondissement,Appartement,45,11175.03,502876.22
+61,62,RUE MESLAY,75003,Paris 3e Arrondissement,Appartement,15,14886.91,223303.69
+62,32,RUE BERNARD BUFFET,75017,Paris 17e Arrondissement,Appartement,72,11986.38,863019.61
+63,92,RUE SAINT-LAZARE,75009,Paris 9e Arrondissement,Appartement,37,12434.87,460090.15
+64,42,RUE MESLAY,75003,Paris 3e Arrondissement,Appartement,57,14885.17,848454.80
+65,112,RUE DE BELLEVILLE,75020,Paris 20e Arrondissement,Appartement,40,10369.80,414792.20
+66,82,RUE CHAMPIONNET,75018,Paris 18e Arrondissement,Appartement,26,11175.62,290566.07
+67,52,RUE DAMREMONT,75018,Paris 18e Arrondissement,Appartement,42,11175.12,469355.06
+68,62,RUE DE TURENNE,75003,Paris 3e Arrondissement,Appartement,22,14886.62,327505.69
+69,52,RUE POLONCEAU,75018,Paris 18e Arrondissement,Appartement,33,11175.40,368788.22
+70,92,RUE DE LA VILLETTE,75019,Paris 19e Arrondissement,Appartement,17,10053.75,170913.76
+71,52,RUE VOLTA,75003,Paris 3e Arrondissement,Appartement,38,14885.96,565666.45
+72,42,RUE DURANTIN,75018,Paris 18e Arrondissement,Appartement,37,11175.28,413485.21
+73,32,RUE PIAT,75020,Paris 20e Arrondissement,Appartement,25,10370.24,259255.95
+74,212,BD DE CHARONNE,75020,Paris 20e Arrondissement,Appartement,54,10369.40,559947.65
+75,121,RUE DU FBG DU TEMPLE,75010,Paris 10e Arrondissement,Appartement,15,11397.51,170962.62
+76,123,RUE DU FBG DU TEMPLE,75010,Paris 10e Arrondissement,Appartement,15,11397.51,170962.62
+77,32,RUE POULET,75018,Paris 18e Arrondissement,Appartement,38,11175.24,424659.31
+78,32,RUE D ORAN,75018,Paris 18e Arrondissement,Appartement,26,11175.62,290566.07
+79,229,RUE DU FBG ST MARTIN,75010,Paris 10e Arrondissement,Appartement,23,11397.25,262136.85
+80,132,BD PEREIRE,75017,Paris 17e Arrondissement,Appartement,50,11987.12,599355.88
+81,128,RUE DU FBG POISSONNIERE,75010,Paris 10e Arrondissement,Appartement,65,11395.92,740734.93
+82,120,RUE D AVRON,75020,Paris 20e Arrondissement,Appartement,24,10370.27,248886.40
+83,42,AV CLAUDE VELLEFAUX,75010,Paris 10e Arrondissement,Appartement,55,11396.24,626793.16
+84,42,BD ROCHECHOUART,75018,Paris 18e Arrondissement,Appartement,17,11175.90,189990.27
+85,52,RUE VOLTA,75003,Paris 3e Arrondissement,Appartement,26,14886.46,387047.87
+86,32,RUE DU FBG ST MARTIN,75010,Paris 10e Arrondissement,Appartement,131,11393.83,1492591.55
+87,62,RUE DE CLICHY,75009,Paris 9e Arrondissement,Appartement,58,12434.14,721180.23
+88,124,RUE DE MENILMONTANT,75020,Paris 20e Arrondissement,Appartement,35,10369.95,362948.23
+89,42,RUE CHAPON,75003,Paris 3e Arrondissement,Appartement,29,14886.33,431703.63
+90,52,RUE LETORT,75018,Paris 18e Arrondissement,Appartement,19,11175.84,212340.88
+91,126,RUE LA FAYETTE,75010,Paris 10e Arrondissement,Appartement,42,11396.65,478659.37
+92,62,RUE DE TURENNE,75003,Paris 3e Arrondissement,Appartement,12,14887.04,178644.44
+93,62,AV DE FLANDRE,75019,Paris 19e Arrondissement,Appartement,86,10051.82,864456.51
+94,62,RUE DE CLERY,75002,Paris 2e Arrondissement,Appartement,37,13886.72,513808.72
+95,42,RUE ORFILA,75020,Paris 20e Arrondissement,Appartement,95,10368.22,984980.66
+96,42,RUE LAUGIER,75017,Paris 17e Arrondissement,Appartement,53,11987.02,635311.92
+97,52,RUE DU FBOURG MONTMARTRE,75009,Paris 9e Arrondissement,Appartement,114,12432.20,1417271.23
+98,82,RUE DE ROMAINVILLE,75019,Paris 19e Arrondissement,Appartement,57,10052.63,572999.99
+99,82,RUE D HAUTEVILLE,75010,Paris 10e Arrondissement,Appartement,139,11393.57,1583706.91
+100,82,RUE DOUDEAUVILLE,75018,Paris 18e Arrondissement,Appartement,46,11175.00,514049.82
+101,32,RUE DE MONTMORENCY,75003,Paris 3e Arrondissement,Appartement,40,14885.88,595435.06
+102,127,RUE D ABOUKIR,75002,Paris 2e Arrondissement,Appartement,27,13887.11,374951.93
+103,126,AV DE FLANDRE,75019,Paris 19e Arrondissement,Appartement,39,10053.14,392072.27
+104,42,RUE DE L ECHIQUIER,75010,Paris 10e Arrondissement,Appartement,64,11395.95,729341.04
+105,102,RUE SAINT-LAZARE,75009,Paris 9e Arrondissement,Appartement,25,12435.28,310882.10
+106,72,RUE SAUSSURE,75017,Paris 17e Arrondissement,Appartement,30,11987.78,359633.55
+107,204,AV JEAN JAURES,75019,Paris 19e Arrondissement,Appartement,33,10053.30,331759.00
+108,102,BD DE LA VILLETTE,75019,Paris 19e Arrondissement,Appartement,35,10053.25,351863.64
+109,32,RUE POULET,75018,Paris 18e Arrondissement,Appartement,32,11175.43,357613.81
+110,82,AV DE FLANDRE,75019,Paris 19e Arrondissement,Appartement,28,10053.44,281496.40
+111,82,AV DE FLANDRE,75019,Paris 19e Arrondissement,Appartement,30,10053.39,301601.61
+112,212,BD DE CHARONNE,75020,Paris 20e Arrondissement,Appartement,45,10369.66,466634.73
+113,62,RUE CHAPON,75003,Paris 3e Arrondissement,Appartement,25,14886.50,372162.45
+114,32,RUE MEDERIC,75017,Paris 17e Arrondissement,Appartement,27,11987.89,323672.90
+115,42,RUE MANIN,75019,Paris 19e Arrondissement,Appartement,32,10053.33,321706.59
+116,42,RUE DES GRAVILLIERS,75003,Paris 3e Arrondissement,Appartement,78,14884.30,1160975.55
+117,142,RUE LA FAYETTE,75010,Paris 10e Arrondissement,Appartement,45,11396.56,512845.04
+118,212,RUE MARCADET,75018,Paris 18e Arrondissement,Appartement,53,11174.78,592263.25
+119,226,AV DU MAINE,75014,Paris 14e Arrondissement,Appartement,46,11529.59,530361.17
+120,32,RUE DES LYONNAIS,75005,Paris 5e Arrondissement,Appartement,23,14671.78,337450.93
+121,129,RUE DE CHARENTON,75012,Paris 12e Arrondissement,Appartement,54,10907.56,589008.49
+122,205,BD RASPAIL,75014,Paris 14e Arrondissement,Appartement,84,11528.37,968383.17
+123,72,AV DU GAL MICHEL BIZOT,75012,Paris 12e Arrondissement,Appartement,37,10908.08,403598.99
+124,72,RUE CROZATIER,75012,Paris 12e Arrondissement,Appartement,42,10907.93,458133.02
+125,128,RUE AMELOT,75011,Paris 11e Arrondissement,Appartement,38,11842.02,449996.90
+126,127,RUE SAINT CHARLES,75015,Paris 15e Arrondissement,Appartement,29,11438.60,331719.40
+127,123,RUE DU CHEMIN VERT,75011,Paris 11e Arrondissement,Appartement,65,11841.13,769673.69
+128,128,BD VOLTAIRE,75011,Paris 11e Arrondissement,Appartement,56,11841.43,663120.10
+129,102,RUE DE REUILLY,75012,Paris 12e Arrondissement,Appartement,16,10908.72,174539.50
+130,112,RUE DU CHEMIN VERT,75011,Paris 11e Arrondissement,Appartement,14,11842.81,165799.41
+131,72,AV DE LA BOURDONNAIS,75007,Paris 7e Arrondissement,Appartement,40,15085.92,603436.73
+132,124,BD DIDEROT,75012,Paris 12e Arrondissement,Appartement,54,10907.56,589008.49
+133,252,RUE DE LA CONVENTION,75015,Paris 15e Arrondissement,Appartement,30,11438.57,343157.04
+134,32,RUE RAYMOND LOSSERAND,75014,Paris 14e Arrondissement,Appartement,44,11529.65,507304.81
+135,32,RUE DE BUCI,75006,Paris 6e Arrondissement,Appartement,16,15737.20,251795.27
+136,129,RUE DE LA POMPE,75016,Paris 16e Arrondissement,Appartement,82,12476.99,1023113.31
+137,62,RUE DE L ASSOMPTION,75016,Paris 16e Arrondissement,Appartement,48,12478.17,598952.28
+138,32,RUE POUCHET,75017,Paris 17e Arrondissement,Appartement,40,11987.45,479498.05
+139,42,BD GOUVION ST-CYR,75017,Paris 17e Arrondissement,Appartement,20,11988.12,239762.37
+140,42,BD GOUVION ST-CYR,75017,Paris 17e Arrondissement,Appartement,21,11988.09,251749.79
+141,125,RUE DE TOCQUEVILLE,75017,Paris 17e Arrondissement,Appartement,19,11988.15,227774.89
+142,123,RUE DU MONT CENIS,75018,Paris 18e Arrondissement,Appartement,37,11175.28,413485.21
+143,205,RUE ORDENER,75018,Paris 18e Arrondissement,Appartement,35,11175.34,391136.84
+144,42,BD ORNANO,75018,Paris 18e Arrondissement,Appartement,33,11175.40,368788.22
+145,32,RUE PELLEPORT,75020,Paris 20e Arrondissement,Appartement,43,10369.72,445897.89
+146,32,RUE DES MARAICHERS,75020,Paris 20e Arrondissement,Appartement,25,10370.24,259255.95
+147,204,RUE DE CRIMEE,75019,Paris 19e Arrondissement,Appartement,27,10053.47,271443.71
+148,202,RUE DE CRIMEE,75019,Paris 19e Arrondissement,Appartement,42,10053.05,422228.15
+149,212,BD DE CHARONNE,75020,Paris 20e Arrondissement,Appartement,48,10369.57,497739.56
+150,126,AV DE FLANDRE,75019,Paris 19e Arrondissement,Appartement,37,10053.19,371968.07
+151,72,RUE VILLIERS ISLE ADAM,75020,Paris 20e Arrondissement,Appartement,30,10370.09,311102.81
+152,92,RUE DE LA VILLETTE,75019,Paris 19e Arrondissement,Appartement,14,10053.83,140753.69
+153,52,RUE TIQUETONNE,75002,Paris 2e Arrondissement,Appartement,30,13886.99,416609.78
+154,127,RUE D ABOUKIR,75002,Paris 2e Arrondissement,Appartement,41,13886.57,569349.27
+155,173,RUE SAINT-HONORE,75001,Paris 1er Arrondissement,Local industriel. commercial ou assimilé,21,16805.88,352923.48
+156,166,RUE DU FAUBOURG SAINT HONORE,75008,Paris 8e Arrondissement,Local industriel. commercial ou assimilé,31,14323.45,444027.03
+157,12,RUE BERZELIUS,75017,Paris 17e Arrondissement,Local industriel. commercial ou assimilé,31,13197.81,409132.06
+158,31,AV DE L OPERA,75001,Paris 1er Arrondissement,Local industriel. commercial ou assimilé,26,16805.65,436946.80
+159,156,RUE DU TEMPLE,75003,Paris 3e Arrondissement,Local industriel. commercial ou assimilé,72,16387.01,1179864.96
+160,16,RUE PIERRE DEMOURS,75017,Paris 17e Arrondissement,Local industriel. commercial ou assimilé,238,13190.21,3139268.97
+161,124,RUE DE COURCELLES,75017,Paris 17e Arrondissement,Local industriel. commercial ou assimilé,137,13193.91,1807566.31
+162,119,RUE BELLIARD,75018,Paris 18e Arrondissement,Local industriel. commercial ou assimilé,53,12302.77,652046.95
+163,11,RUE BEAUREGARD,75002,Paris 2e Arrondissement,Local industriel. commercial ou assimilé,30,15288.76,458662.83
+164,13,RUE DE LA GRANDE TRUANDERIE,75001,Paris 1er Arrondissement,Local industriel. commercial ou assimilé,38,16805.08,638593.22
+165,31,RUE TRONCHET,75008,Paris 8e Arrondissement,Local industriel. commercial ou assimilé,124,14319.75,1775648.39
+166,24,RUE DE SAINT QUENTIN,75010,Paris 10e Arrondissement,Local industriel. commercial ou assimilé,47,12546.87,589702.77
+167,3,RUE DAMREMONT,75018,Paris 18e Arrondissement,Local industriel. commercial ou assimilé,27,12303.66,332198.90
+168,106,BD DE COURCELLES,75017,Paris 17e Arrondissement,Local industriel. commercial ou assimilé,50,13197.11,659855.51
+169,15,RUE HELENE,75017,Paris 17e Arrondissement,Local industriel. commercial ou assimilé,27,13197.96,356344.79
+170,31,AV MAC MAHON,75017,Paris 17e Arrondissement,Local industriel. commercial ou assimilé,30,13197.85,395935.35
+171,11,RUE MICHEL LE COMTE,75003,Paris 3e Arrondissement,Local industriel. commercial ou assimilé,14,16389.66,229455.23
+172,142,RUE DE COURCELLES,75017,Paris 17e Arrondissement,Local industriel. commercial ou assimilé,88,13195.71,1161222.87
+173,3,AV BERTIE ALBRECHT,75008,Paris 8e Arrondissement,Local industriel. commercial ou assimilé,175,14317.71,2505599.66
+174,1,RUE CLAPEYRON,75008,Paris 8e Arrondissement,Local industriel. commercial ou assimilé,15,14324.09,214861.36
+175,10,RUE PIERRE FONTAINE,75009,Paris 9e Arrondissement,Local industriel. commercial ou assimilé,27,13690.44,369641.86
+176,24,RUE PASTOURELLE,75003,Paris 3e Arrondissement,Local industriel. commercial ou assimilé,90,16386.19,1474757.30
+177,229,RUE DU FBG ST MARTIN,75010,Paris 10e Arrondissement,Local industriel. commercial ou assimilé,58,12546.48,727696.03
+178,1,PAS CHOISEUL,75002,Paris 2e Arrondissement,Local industriel. commercial ou assimilé,34,15288.59,519812.08
+179,125,RUE DE TURENNE,75003,Paris 3e Arrondissement,Local industriel. commercial ou assimilé,35,16388.70,573604.54
+180,15,RUE CHATEAUBRIAND,75008,Paris 8e Arrondissement,Local industriel. commercial ou assimilé,200,14316.72,2863343.21
+181,3,RUE DE VIENNE,75008,Paris 8e Arrondissement,Local industriel. commercial ou assimilé,204,14316.56,2920577.55
+182,184,RUE SAINT MAUR,75010,Paris 10e Arrondissement,Local industriel. commercial ou assimilé,160,12542.92,2006867.45
+183,13,RUE CHAPON,75003,Paris 3e Arrondissement,Local industriel. commercial ou assimilé,200,16381.18,3276235.11
+184,91,RUE JOUFFROY D'ABBANS,75017,Paris 17e Arrondissement,Local industriel. commercial ou assimilé,250,13189.77,3297441.29
+185,102,AV DES CHAMPS ELYSEES,75008,Paris 8e Arrondissement,Local industriel. commercial ou assimilé,19,14323.93,272154.69
+186,3,RUE DAMREMONT,75018,Paris 18e Arrondissement,Local industriel. commercial ou assimilé,27,12303.66,332198.90
+187,14,RUE VICTOR MASSE,75009,Paris 9e Arrondissement,Local industriel. commercial ou assimilé,20,13690.71,273814.12
+188,142,RUE SAINT-HONORE,75001,Paris 1er Arrondissement,Local industriel. commercial ou assimilé,45,16804.76,756214.08
+189,2,RUE M. ELEONORE DE BELLEFOND,75009,Paris 9e Arrondissement,Local industriel. commercial ou assimilé,23,13690.59,314883.61
+190,137,RUE DU TEMPLE,75003,Paris 3e Arrondissement,Local industriel. commercial ou assimilé,38,16388.56,622765.44
+191,174,RUE DE BELLEVILLE,75020,Paris 20e Arrondissement,Local industriel. commercial ou assimilé,50,11416.23,570811.33
+192,11,RUE DE BERRI,75008,Paris 8e Arrondissement,Local industriel. commercial ou assimilé,75,14321.70,1074127.38
+193,13,RUE BOINOD,75018,Paris 18e Arrondissement,Local industriel. commercial ou assimilé,36,12303.35,442920.78
+194,11,BD SAINT MARTIN,75003,Paris 3e Arrondissement,Local industriel. commercial ou assimilé,34,16388.75,557217.39
+195,100,RUE DE BELLEVILLE,75020,Paris 20e Arrondissement,Local industriel. commercial ou assimilé,30,11416.86,342505.87
+196,122,BD HAUSSMANN,75008,Paris 8e Arrondissement,Local industriel. commercial ou assimilé,50,14322.70,716134.76
+197,146,RUE DE COURCELLES,75017,Paris 17e Arrondissement,Local industriel. commercial ou assimilé,36,13197.62,475114.48
+198,16,RUE MOUTON DUVERNET,75014,Paris 14e Arrondissement,Local industriel. commercial ou assimilé,65,12692.73,825027.36
+199,11,RUE DE NICE,75011,Paris 11e Arrondissement,Local industriel. commercial ou assimilé,121,13034.36,1577157.40
+200,10,BD DES FILLES CALVAIRE,75011,Paris 11e Arrondissement,Local industriel. commercial ou assimilé,97,13035.23,1264417.26
+201,71,RUE DU THEATRE,75015,Paris 15e Arrondissement,Local industriel. commercial ou assimilé,99,12590.77,1246486.34
+202,110,RUE DE SEVRES,75015,Paris 15e Arrondissement,Local industriel. commercial ou assimilé,32,12593.12,402979.82
+203,21,RUE DU DEPART,75014,Paris 14e Arrondissement,Local industriel. commercial ou assimilé,30,12693.97,380818.96
+204,107,RUE D ALESIA,75014,Paris 14e Arrondissement,Local industriel. commercial ou assimilé,14,12694.53,177723.43
+205,15,RUE GEORGES BIZET,75016,Paris 16e Arrondissement,Local industriel. commercial ou assimilé,77,13736.62,1057720.04
+206,16,RUE CORTAMBERT,75016,Paris 16e Arrondissement,Local industriel. commercial ou assimilé,45,13737.85,618203.14
+207,10,RUE DOMAT,75005,Paris 5e Arrondissement,Local industriel. commercial ou assimilé,157,16146.74,2535038.36
+208,15,RUE GUYTON DE MORVEAU,75013,Paris 13e Arrondissement,Local industriel. commercial ou assimilé,83,11755.49,975705.82
+209,15,RUE GUYTON DE MORVEAU,75013,Paris 13e Arrondissement,Local industriel. commercial ou assimilé,80,11755.59,940447.20
+210,41,AV DU GENERAL LECLERC,75014,Paris 14e Arrondissement,Local industriel. commercial ou assimilé,55,12693.08,698119.51
+211,12,BD DE REUILLY,75012,Paris 12e Arrondissement,Local industriel. commercial ou assimilé,13,12009.96,156129.44
+212,12,RUE ANTOINE ROUCHER,75016,Paris 16e Arrondissement,Local industriel. commercial ou assimilé,84,13736.36,1153853.92
+213,21,RUE LEON FROT,75011,Paris 11e Arrondissement,Local industriel. commercial ou assimilé,109,13034.79,1420792.55
+214,231,RUE DE CHARENTON,75012,Paris 12e Arrondissement,Local industriel. commercial ou assimilé,31,12009.35,372290.00
+215,3,RUE DANTON,75006,Paris 6e Arrondissement,Local industriel. commercial ou assimilé,286,17312.72,4951437.34
+216,1,RUE EUGENE LABICHE,75016,Paris 16e Arrondissement,Local industriel. commercial ou assimilé,70,13736.89,961582.41
+217,13,RUE SAINT NICOLAS,75012,Paris 12e Arrondissement,Local industriel. commercial ou assimilé,21,12009.69,252203.47
+218,91,RUE RAYMOND LOSSERAND,75014,Paris 14e Arrondissement,Local industriel. commercial ou assimilé,12,12694.60,152335.22
+219,19,RUE DU DRAGON,75006,Paris 6e Arrondissement,Local industriel. commercial ou assimilé,49,17324.14,848883.02
+220,121,BD DU MONTPARNASSE,75006,Paris 6e Arrondissement,Local industriel. commercial ou assimilé,21,17325.49,363835.36
+221,121,BD DU MONTPARNASSE,75006,Paris 6e Arrondissement,Local industriel. commercial ou assimilé,19,17325.59,329186.21
+222,159,RUE SAINT CHARLES,75015,Paris 15e Arrondissement,Local industriel. commercial ou assimilé,38,12592.91,478530.55
+223,16,RUE MOUTON DUVERNET,75014,Paris 14e Arrondissement,Local industriel. commercial ou assimilé,33,12693.86,418897.36
+224,1,RUE DAGORNO,75012,Paris 12e Arrondissement,Local industriel. commercial ou assimilé,93,12007.28,1116677.27
+225,19,RUE DE LA BUTTE AUX CAILLES,75013,Paris 13e Arrondissement,Local industriel. commercial ou assimilé,38,11756.96,446764.65
+226,113,RUE SAINT MAUR,75011,Paris 11e Arrondissement,Local industriel. commercial ou assimilé,147,13033.42,1915912.06
+227,3,RUE LAROCHELLE,75014,Paris 14e Arrondissement,Local industriel. commercial ou assimilé,45,12693.44,571204.59
+228,13,RUE DUPIN,75006,Paris 6e Arrondissement,Local industriel. commercial ou assimilé,25,17325.30,433132.52
+229,125,RUE DE LA POMPE,75016,Paris 16e Arrondissement,Local industriel. commercial ou assimilé,90,13736.13,1236251.41
+230,12,RUE DEGAS,75016,Paris 16e Arrondissement,Local industriel. commercial ou assimilé,45,13737.85,618203.14
+231,109,BD VOLTAIRE,75011,Paris 11e Arrondissement,Local industriel. commercial ou assimilé,47,13037.04,612741.06
+232,10,RUE VERONESE,75013,Paris 13e Arrondissement,Local industriel. commercial ou assimilé,30,11757.23,352716.79
+233,15,RUE DES BELLES FEUILLES,75016,Paris 16e Arrondissement,Local industriel. commercial ou assimilé,120,13734.98,1648197.57
+234,15,RUE DES BELLES FEUILLES,75016,Paris 16e Arrondissement,Local industriel. commercial ou assimilé,58,13737.35,796766.32
+235,3,RUE DE L ABBE GREGOIRE,75006,Paris 6e Arrondissement,Local industriel. commercial ou assimilé,38,17324.67,658337.60
+236,2,AV PAUL DOUMER,75016,Paris 16e Arrondissement,Local industriel. commercial ou assimilé,20,13738.80,274776.07
+237,178,RUE DE GRENELLE,75007,Paris 7e Arrondissement,Local industriel. commercial ou assimilé,70,16607.32,1162512.43
+238,21,RUE DU DEPART,75014,Paris 14e Arrondissement,Local industriel. commercial ou assimilé,39,12693.65,495052.25
+239,11,RUE DE LA CLEF,75005,Paris 5e Arrondissement,Local industriel. commercial ou assimilé,94,16149.57,1518059.86
+240,10,RUE DES DEUX GARES,75010,Paris 10e Arrondissement,Local industriel. commercial ou assimilé,20,12547.81,250956.21
+241,14,RUE DE MAUBEUGE,75009,Paris 9e Arrondissement,Local industriel. commercial ou assimilé,80,13688.42,1095073.56
+242,135,RUE DU FG POISSONNIERE,75009,Paris 9e Arrondissement,Local industriel. commercial ou assimilé,80,13688.42,1095073.56
+243,1,RUE LUCIEN SAMPAIX,75010,Paris 10e Arrondissement,Local industriel. commercial ou assimilé,78,12545.78,978571.22
+244,13,RUE DU RENDEZ VOUS,75012,Paris 12e Arrondissement,Local industriel. commercial ou assimilé,32,12009.32,384298.29
+245,112,RUE DE CHARENTON,75012,Paris 12e Arrondissement,Local industriel. commercial ou assimilé,100,12007.05,1200704.86
+246,16,RUE GODEFROY CAVAIGNAC,75011,Paris 11e Arrondissement,Local industriel. commercial ou assimilé,35,13037.48,456311.78
+247,104,BD DIDEROT,75012,Paris 12e Arrondissement,Local industriel. commercial ou assimilé,41,12009.02,492369.85
+248,104,BD DIDEROT,75012,Paris 12e Arrondissement,Local industriel. commercial ou assimilé,87,12007.48,1044651.03
+249,102,QUAI DE LA RAPEE,75012,Paris 12e Arrondissement,Local industriel. commercial ou assimilé,118,12006.45,1416760.74
+250,104,BD VOLTAIRE,75011,Paris 11e Arrondissement,Local industriel. commercial ou assimilé,42,13037.23,547563.46
+251,104,BD VOLTAIRE,75011,Paris 11e Arrondissement,Local industriel. commercial ou assimilé,42,13037.23,547563.46
+252,1,RUE VULPIAN,75013,Paris 13e Arrondissement,Local industriel. commercial ou assimilé,28,11757.29,329204.17
+253,3,RUE DU BANQUIER,75013,Paris 13e Arrondissement,Local industriel. commercial ou assimilé,84,11755.46,987458.56
+254,10,RUE VERONESE,75013,Paris 13e Arrondissement,Local industriel. commercial ou assimilé,23,11757.46,270421.47
+255,15,RUE DE TOLBIAC,75013,Paris 13e Arrondissement,Local industriel. commercial ou assimilé,27,11757.32,317447.76
+256,224,RUE DE VAUGIRARD,75015,Paris 15e Arrondissement,Local industriel. commercial ou assimilé,82,12591.37,1032492.09
+257,3,RUE DE L ARRIVEE,75015,Paris 15e Arrondissement,Local industriel. commercial ou assimilé,31,12593.15,390387.79
+258,51,PL SAINT CHARLES,75015,Paris 15e Arrondissement,Local industriel. commercial ou assimilé,46,12592.63,579260.92
+259,3,RUE D OUESSANT,75015,Paris 15e Arrondissement,Local industriel. commercial ou assimilé,60,12592.14,755528.28
+260,13,RUE SPONTINI,75016,Paris 16e Arrondissement,Local industriel. commercial ou assimilé,106,13735.52,1455964.59
+261,131,AV DE VERSAILLES,75016,Paris 16e Arrondissement,Local industriel. commercial ou assimilé,58,13737.35,796766.32
+262,31,RUE DURET,75016,Paris 16e Arrondissement,Local industriel. commercial ou assimilé,27,13738.54,370940.47
+263,1,RUE ALPHONSE DE NEUVILLE,75017,Paris 17e Arrondissement,Local industriel. commercial ou assimilé,40,13197.48,527899.11
+264,11,RUE DE PRONY,75017,Paris 17e Arrondissement,Local industriel. commercial ou assimilé,52,13197.04,686245.91
+265,231,BD PEREIRE,75017,Paris 17e Arrondissement,Local industriel. commercial ou assimilé,78,13196.08,1029294.37
+266,16,PAS CARDINET,75017,Paris 17e Arrondissement,Local industriel. commercial ou assimilé,28,13197.92,369541.72
+267,3,RUE DES ABBESSES,75018,Paris 18e Arrondissement,Local industriel. commercial ou assimilé,101,12301.13,1242414.03
+268,1,RUE ORDENER,75018,Paris 18e Arrondissement,Local industriel. commercial ou assimilé,55,12302.70,676648.73
+269,16,QUAI DE LA MARNE,75019,Paris 19e Arrondissement,Local industriel. commercial ou assimilé,23,11068.40,254573.26
+270,142,AV JEAN JAURES,75019,Paris 19e Arrondissement,Local industriel. commercial ou assimilé,85,11066.49,940651.85
+271,15,AV DE LAUMIERE,75019,Paris 19e Arrondissement,Local industriel. commercial ou assimilé,16,11068.62,177097.89
+272,3,RUE SAINT-JOSEPH,75002,Paris 2e Arrondissement,Local industriel. commercial ou assimilé,15,15289.40,229340.99
+273,2,RUE GRETRY,75002,Paris 2e Arrondissement,Local industriel. commercial ou assimilé,35,15288.55,535099.18
+274,115,RUE D ABOUKIR,75002,Paris 2e Arrondissement,Local industriel. commercial ou assimilé,49,15287.95,749109.66
+275,16,RUE AUBRIOT,75004,Paris 4e Arrondissement,Local industriel. commercial ou assimilé,37,17287.84,639649.92
