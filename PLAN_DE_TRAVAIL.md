@@ -1,21 +1,32 @@
-# Projet OC 1591 — plan et état d’avancement
+# Projet OpenClassrooms 1591 — état et points à terminer
 
-## Fait
-- Lecture des consignes fournies et des trois fichiers de référence (historique, portefeuille, modèle de slides) ainsi que du notebook étudiant.
-- Étape 1 : profilage et analyses descriptives; prix moyen par année, arrondissement, transaction du 6e, corrélations et comparaison des types.
-- Étape 2 : régression linéaire avec one-hot encoding et séparation temporelle manuelle. Apprentissage : 2017–2020 (21,128 lignes); test : 2021 (5,068 lignes). Erreur absolue relative moyenne mesurée : 7.87%.
-- Étape 3 : prévision des 275 actifs au 31/12/2022 et export CSV; présentation client synthétique.
-- K-means : clustering sur le prix au m², apprentissage 2017–2020; contrôle sur les ventes 2021 (précision locaux 23.3%, rappel 73.6%, exactitude 80.1%).
-- Validation externe non terminée : l’échantillon `echantillon_a_classer2.xlsx` et les étiquettes de référence de Louise ne sont pas dans les fichiers disponibles; les fournir pour finaliser la comparaison officielle.
+## Travail réalisé et vérifié
 
-## Points à faire confirmer avec le mentor / le brief
-1. Les 16 lignes strictement identiques sont conservées, car le fichier ne fournit pas d’identifiant de vente permettant de trancher.
-2. L’algorithme apprend le logarithme du prix au m² puis reconstruit la valeur totale en multipliant par la surface réelle. La version brute sur la valeur totale n’a pas atteint la cible sous 10% avec le split strictement chronologique; la transformation du prix au m² atteint 7.87% sur le test 2021.
-3. Le portefeuille n’indique pas de branche/segment d’entreprise : les montants sont présentés par type de bien comme ventilation descriptive.
-4. La valorisation du 31/12/2022 est une extrapolation à partir des ventes 2017–2021, et non une estimation expertisée.
+- Profilage des données historiques : 26 196 lignes, deux types de biens, aucune valeur manquante, période du 02/01/2017 au 31/12/2021. Seize lignes sont entièrement identiques; elles sont conservées faute d’identifiant de transaction.
+- Analyses du marché : évolution du prix moyen au m² des appartements, comparaison par arrondissement, détail des mutations du 6e arrondissement, corrélations prix/date et prix/surface, comparaison appartements/locaux.
+- Régression linéaire évaluée avec une séparation manuelle chronologique : apprentissage 2017–2020 (21 128 lignes), test 2021 (5 068 lignes). L’erreur absolue relative moyenne du prix total est de 7,87 %; le biais moyen est de +7,86 %, donc les prédictions surestiment en moyenne les valeurs du test.
+- Valorisation estimée au 31/12/2022 et export des 275 biens dans `livrables/predictions_valorisation_portefeuille_2022-12-31.csv`.
+- Échantillon OpenClassrooms de 40 opportunités ajouté dans `data/raw/echantillon_a_classer2.xlsx`; le notebook produit leur classement K-means dans un CSV.
+- Support de présentation de 9 diapositives, dans le modèle fourni et sous la limite de 20 diapositives.
 
-## Classification K-means
-Le notebook inclut un test de clustering sur les transactions historiques 2021 mises à l’écart. La validation finale de l’échantillon Louise attend le classeur d’opportunités et les étiquettes réelles de l’équipe.
+## Résultats K-means et limites
+
+- K-means est ajusté sur le prix au m² des transactions 2017–2020; les libellés des transactions d’apprentissage servent uniquement à donner un nom interprétable aux deux groupes.
+- Sur les ventes tenues à l’écart en 2021 : précision « local » 23,3 %, rappel 73,6 %, exactitude globale 80,1 %. Un classement systématique en appartement atteint 92,6 % d’exactitude sur ce jeu déséquilibré. Ce K-means n’est donc pas assez fiable pour automatiser une décision d’achat.
+- Les 40 opportunités de l’échantillon sont dans le 19e arrondissement et sont toutes estimées « appartement ». Ce résultat est provisoire et n’est pas validé par une étiquette de référence.
+
+## À obtenir pour terminer la validation officielle
+
+Récupérer auprès de l’équipe de Louise les étiquettes réelles correspondant aux 40 biens, puis comparer ces étiquettes aux résultats K-means dans le notebook et mettre à jour la présentation. Sans ce fichier, la précision de classement sur les opportunités réelles ne peut pas être calculée.
+
+## Hypothèses à signaler
+
+1. Les lignes historiques sont comptées comme transactions; les 16 lignes identiques ne peuvent pas être distinguées sans identifiant dédié.
+2. Le modèle prédit le logarithme du prix au m², puis reconstruit la valeur totale par multiplication par la surface réelle.
+3. Le test sur 2021 est rétrospectif. Le biais moyen positif doit être mentionné; le résultat ne garantit pas la précision sur le portefeuille en 2022.
+4. La valorisation du portefeuille est ventilée par type de bien, faute de colonne de branche dans le fichier.
+5. Les fichiers ne décrivent pas l’état, l’étage, le DPE ni la nature détaillée des locaux.
 
 ## Exécution
-Depuis le dossier extrait : installer `requirements.txt`, démarrer Jupyter depuis la racine `Projet_OC1591`, puis exécuter `livrables/Bell_Steve_1_Notebook_102026.ipynb` du début à la fin. Le CSV présent a été produit par le notebook et contient une ligne par actif.
+
+Depuis la racine du dépôt, installer les dépendances de `requirements.txt`, puis exécuter `livrables/Bell_Steve_1_Notebook_102026.ipynb`. Le notebook sait résoudre ses chemins depuis la racine du dépôt ou depuis le dossier `livrables`.

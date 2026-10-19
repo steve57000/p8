@@ -1,1 +1,3 @@
-Ajouter ici echantillon_a_classer2.xlsx et le fichier ou tableau des étiquettes réelles de l’équipe Louise; ils sont nécessaires pour exécuter la démonstration demandée et comparer les résultats.
+L’échantillon OpenClassrooms echantillon_a_classer2.xlsx est présent dans ce dossier.
+
+Il manque encore les étiquettes de référence de l’équipe de Louise pour comparer les prédictions et terminer la validation officielle.
