@@ -6,7 +6,7 @@ valorisation du portefeuille au 31 décembre 2022 et classement exploratoire des
 ## Présentation et notebook révisés le 16 novembre 2026
 
 Le notebook principal reprend les cinq étapes du modèle fourni, avec 32 cellules de code exécutées,
-neuf graphiques, des interprétations et un tableau de couverture des consignes.
+quinze graphiques lisibles, des interprétations et un tableau de couverture des consignes.
 
 - [Notebook principal](livrables/Bell_Steve_1_Notebook_102026.ipynb)
 - [Version HTML à télécharger pour une lecture sans Python](livrables/Bell_Steve_1_Notebook_102026.html)
@@ -16,6 +16,7 @@ neuf graphiques, des interprétations et un tableau de couverture des consignes.
 - [Classement provisoire des 40 opportunités](livrables/classification_echantillon_louise_102026.csv)
 - [Synthèse des segments](livrables/synthese_valorisation_segments.csv)
 - [Métriques de régression](livrables/metriques_regression.csv)
+- [Comparaison des 20 arrondissements](livrables/comparaison_arrondissements.csv)
 - [Notes de soutenance actualisées](livrables/NOTES_SOUTENANCE.md)
 - [Graphiques](livrables/figures/)
 
@@ -23,6 +24,13 @@ Les noms des fichiers sont conservés pour maintenir les liens existants ; leur 
 à la révision de novembre. La présentation a été entièrement recomposée : identité visuelle
 vert profond et ivoire, photographie de Paris, neuf graphiques éditables, résultats actualisés
 et notes de soutenance dans chacune des 18 diapositives. Le PDF permet de vérifier la mise en page.
+
+La section 1.6 du notebook distingue les trajectoires 2017–2021 et les niveaux de prix en 2021 :
+un tableau complet, quatre figures successives de cinq arrondissements sur une échelle commune,
+puis un classement des 20 moyennes de 2021 avec les valeurs affichées.
+Tous les graphiques utilisent un fond clair explicite, y compris dans PyCharm en thème sombre.
+Les légendes ont une police de 12 points et une place réservée hors des courbes.
+Les nuages de points et diagnostics auparavant côte à côte sont présentés séparément.
 
 ## Résultats et limites
 
@@ -140,16 +148,17 @@ Choisir ensuite `C:\venvs\p8\Scripts\python.exe` dans PyCharm.
 
 ## Vérification
 
-Les 32 cellules ont été exécutées intégralement deux fois avec `nbclient`, dans des noyaux
-Jupyter neufs : depuis la racine, puis depuis `livrables`, avec `data/raw` à la racine.
-Les deux exécutions ont réussi, avec neuf figures et aucune erreur. La détection de l’ancien
-agencement et les messages d’erreur pour un chemin explicite incorrect ont aussi été vérifiés.
-Après reproduction du problème PyCharm, deux exécutions intégrales supplémentaires ont été
-effectuées depuis un dossier extérieur au projet, dans un vrai `.venv` du projet :
-`DOSSIER_DONNEES = None`, puis `DOSSIER_DONNEES = '../data/raw'`.
-Les 32 cellules et neuf figures passent dans les deux cas, et aucun fichier n’est écrit
-dans le dossier de démarrage extérieur. Les cas de chemins explicites, d’ambiguïté,
-d’annulation et d’absence du sélecteur sont couverts par les tests de régression :
+La version actuelle a été exécutée intégralement avec `nbclient`, dans un noyau neuf du `.venv`
+du projet lancé depuis un dossier extérieur. Un état Matplotlib sombre a été simulé avant
+la cellule de préparation : les 32 cellules et quinze figures s’exécutent sans erreur,
+et aucun fichier n’est écrit dans le dossier de démarrage extérieur.
+Les quatre graphiques d’arrondissements partagent les mêmes limites verticales ; les 20 séries
+et les 20 barres du classement sont présentes. La taille des légendes, leur place dans la figure
+et l’absence de recouvrement avec les axes ont été contrôlées. Les métriques de régression
+et la valorisation n’ont pas changé.
+
+Les démarrages à la racine, dans `livrables`, hors du projet avec son `.venv`, les chemins explicites,
+l’ancien agencement, les ambiguïtés et l’annulation du sélecteur sont couverts par 28 tests :
 
 ```bash
 python -m unittest discover -s tests -v
