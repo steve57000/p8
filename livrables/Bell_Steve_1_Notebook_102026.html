@@ -7858,12 +7858,16 @@ mesures d’erreur et contrôle chronologique.</li>
 </ol>
 <p><strong>Exécution :</strong> sélectionner un noyau Python 3.10 ou supérieur, puis
 « Redémarrer le noyau et exécuter toutes les cellules ». Le notebook fonctionne
-depuis la racine du projet, son dossier <code>livrables</code>, ou le dossier du ZIP fourni.
+depuis la racine du projet, son dossier <code>livrables</code>, ou un dossier extérieur
+comme <code>C:/Windows/System32</code> si l’interpréteur appartient au <code>.venv</code> du projet.
 L’agencement recommandé place <code>data/raw/</code> et <code>livrables/</code> à la racine du projet.
-L’ancien agencement <code>livrables/data/raw/</code> est aussi reconnu. La recherche est automatique :
-laisser <code>DOSSIER_DONNEES = None</code> dans la cellule de paramètres. Pour un autre emplacement,
-renseigner ce paramètre avec le chemin du dossier contenant les trois classeurs
-(un chemin relatif est interprété depuis le dossier de travail affiché ci-dessous).</p>
+L’ancien agencement <code>livrables/data/raw/</code> est aussi reconnu. Laisser
+<code>DOSSIER_PROJET = None</code> et <code>DOSSIER_DONNEES = None</code> pour la détection automatique.
+Si le projet n’est pas détectable, une fenêtre Windows permet de choisir le dossier
+qui contient <code>data/</code> et <code>livrables/</code>. Si elle n’apparaît pas ou si elle est annulée,
+copier le chemin absolu du projet depuis PyCharm dans <code>DOSSIER_PROJET</code>.
+Un <code>DOSSIER_DONNEES</code> explicite reste prioritaire ; les formes relatives <code>data/raw</code>
+et <code>../data/raw</code> sont aussi vérifiées depuis le projet et le dossier du notebook.</p>
 <p>Installation, dans un terminal de l’environnement Python utilisé :</p>
 <div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>numpy<span class="w"> </span>matplotlib<span class="w"> </span>scipy<span class="w"> </span>scikit-learn<span class="w"> </span>openpyxl<span class="w"> </span>ipykernel<span class="w"> </span>nbformat<span class="w"> </span>nbclient<span class="w"> </span>nbconvert
 </pre></div>
@@ -7977,7 +7981,8 @@ de distinguer commerce, cabinet et agence au sein des locaux.</li>
 <span class="n">DATE_ORIGINE</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">'2017-01-01'</span><span class="p">)</span>
 <span class="n">DATE_ESTIMATION</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">'2022-12-31'</span><span class="p">)</span>
 <span class="n">ANNEE_ECHANTILLON</span> <span class="o">=</span> <span class="mi">2021</span>  <span class="c1"># Indication du sujet, non vérifiable dans le classeur.</span>
-<span class="n">DOSSIER_DONNEES</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Recherche automatique ; ou Path('C:/projets/p8/data/raw')</span>
+<span class="n">DOSSIER_PROJET</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Si nécessaire : r'C:/chemin/absolu/vers/le/projet'</span>
+<span class="n">DOSSIER_DONNEES</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Laisser None pour utiliser data/raw dans le projet détecté.</span>
 
 <span class="n">LIBELLES_TYPES</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="s1">'Appartement'</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s1">'Local industriel. commercial ou assimilé'</span><span class="p">}</span>
 <span class="n">SEGMENTS</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="s1">'Particuliers'</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="s1">'Corporate'</span><span class="p">}</span>
@@ -8018,12 +8023,14 @@ de distinguer commerce, cabinet et agence au sein des locaux.</li>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Localiser-les-fichiers-et-pr%C3%A9parer-les-exports">Localiser les fichiers et préparer les exports<a class="anchor-link" href="#Localiser-les-fichiers-et-pr%C3%A9parer-les-exports">¶</a></h3><p>La recherche distingue le <strong>dossier des données</strong> du <strong>dossier des résultats</strong>.
-Les exports restent dans <code>livrables/</code>, que le noyau démarre à la racine ou dans
-<code>livrables/</code>, et même lorsque les sources sont rangées dans l’ancien emplacement
-<code>livrables/data/raw/</code>. Un chemin <code>DOSSIER_DONNEES</code> explicite est prioritaire : s’il
-est incorrect ou incomplet, un message indique les fichiers manquants sans choisir
-silencieusement un autre dossier.</p>
+<h3 id="Localiser-le-projet,-les-sources-et-les-exports">Localiser le projet, les sources et les exports<a class="anchor-link" href="#Localiser-le-projet,-les-sources-et-les-exports">¶</a></h3><p>Le dossier de démarrage du noyau peut être <code>C:/Windows/System32</code> dans PyCharm :
+il ne donne alors pas l’emplacement du notebook. La détection vérifie aussi
+l’emplacement de l’interpréteur <code>.venv</code>, puis, si nécessaire, demande de sélectionner
+le projet sous Windows. <code>DOSSIER_PROJET</code> accepte un chemin absolu explicite.</p>
+<p>La racine doit être reconnue par la présence du notebook avant toute écriture.
+Les sources sont recherchées dans <code>data/raw/</code> (ou l’ancien <code>livrables/data/raw/</code>),
+et les exports restent dans le <code>livrables/</code> du projet. Un chemin de données explicite
+incorrect provoque une erreur détaillée ; il n’est pas remplacé silencieusement.</p>
 </div>
 </div>
 </div>
@@ -8035,7 +8042,10 @@ silencieusement un autre dossier.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">FICHIERS</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="n">FICHIERS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">'historique'</span><span class="p">:</span> <span class="s1">'historique_immobilier_paris_2017_2021.xlsx'</span><span class="p">,</span>
     <span class="s1">'portefeuille'</span><span class="p">:</span> <span class="s1">'portefeuille_actifs.xlsx'</span><span class="p">,</span>
     <span class="s1">'echantillon'</span><span class="p">:</span> <span class="s1">'echantillon_a_classer2.xlsx'</span><span class="p">,</span>
@@ -8043,46 +8053,122 @@ silencieusement un autre dossier.</p>
 <span class="n">DEPART</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
 <span class="n">NOM_NOTEBOOK</span> <span class="o">=</span> <span class="s1">'Bell_Steve_1_Notebook_102026.ipynb'</span>
 
-<span class="c1"># Chercher la racine du projet depuis le dossier de travail du noyau.</span>
-<span class="c1"># La destination des exports ne dépend pas de l'emplacement des sources.</span>
-<span class="n">RACINE</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">(</span><span class="n">DEPART</span><span class="p">,</span> <span class="o">*</span><span class="n">DEPART</span><span class="o">.</span><span class="n">parents</span><span class="p">)</span>
-     <span class="k">if</span> <span class="p">(</span><span class="n">d</span> <span class="o">/</span> <span class="s1">'livrables'</span> <span class="o">/</span> <span class="n">NOM_NOTEBOOK</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()),</span>
-    <span class="n">DEPART</span><span class="o">.</span><span class="n">parent</span> <span class="k">if</span> <span class="n">DEPART</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">'livrables'</span> <span class="k">else</span> <span class="n">DEPART</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="k">if</span> <span class="n">DOSSIER_DONNEES</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">candidats</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">DOSSIER_DONNEES</span><span class="p">)</span><span class="o">.</span><span class="n">expanduser</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()]</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">candidats</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">[</span>
-        <span class="n">RACINE</span> <span class="o">/</span> <span class="s1">'data'</span> <span class="o">/</span> <span class="s1">'raw'</span><span class="p">,</span>
-        <span class="n">RACINE</span> <span class="o">/</span> <span class="s1">'livrables'</span> <span class="o">/</span> <span class="s1">'data'</span> <span class="o">/</span> <span class="s1">'raw'</span><span class="p">,</span>  <span class="c1"># Ancien agencement du dépôt.</span>
-        <span class="n">DEPART</span> <span class="o">/</span> <span class="s1">'data'</span> <span class="o">/</span> <span class="s1">'raw'</span><span class="p">,</span>
-        <span class="n">DEPART</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s1">'data'</span> <span class="o">/</span> <span class="s1">'raw'</span><span class="p">,</span>
-        <span class="n">DEPART</span><span class="p">,</span>
-    <span class="p">]))</span>
 
-<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">candidats</span> <span class="k">if</span> <span class="nb">all</span><span class="p">((</span><span class="n">d</span> <span class="o">/</span> <span class="n">nom</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()</span> <span class="k">for</span> <span class="n">nom</span> <span class="ow">in</span> <span class="n">FICHIERS</span><span class="o">.</span><span class="n">values</span><span class="p">())),</span>
-    <span class="kc">None</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="k">if</span> <span class="n">DATA_DIR</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="n">diagnostic</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">"- </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2"> : fichiers manquants = "</span>
-        <span class="o">+</span> <span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">nom</span> <span class="k">for</span> <span class="n">nom</span> <span class="ow">in</span> <span class="n">FICHIERS</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">d</span> <span class="o">/</span> <span class="n">nom</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">())</span>
-        <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">candidats</span>
-    <span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_racine_depuis</span><span class="p">(</span><span class="n">ancrage</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Reconnaître le projet par son notebook, jamais par un simple nom de dossier."""</span>
+    <span class="n">dossier</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">ancrage</span><span class="p">)</span><span class="o">.</span><span class="n">expanduser</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">parent</span> <span class="ow">in</span> <span class="p">(</span><span class="n">dossier</span><span class="p">,</span> <span class="o">*</span><span class="n">dossier</span><span class="o">.</span><span class="n">parents</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">parent</span> <span class="o">/</span> <span class="s1">'livrables'</span> <span class="o">/</span> <span class="n">NOM_NOTEBOOK</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">parent</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">parent</span> <span class="o">/</span> <span class="n">NOM_NOTEBOOK</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+            <span class="k">return</span> <span class="n">parent</span><span class="o">.</span><span class="n">parent</span> <span class="k">if</span> <span class="n">parent</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">'livrables'</span> <span class="k">else</span> <span class="n">parent</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_choisir_projet_windows</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Dernier recours sur le poste Windows ; aucune recherche sur tout le disque."""</span>
+    <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">'Windows'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="kn">import</span> <span class="n">filedialog</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">fenetre</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">fenetre</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+        <span class="n">fenetre</span><span class="o">.</span><span class="n">withdraw</span><span class="p">()</span>
+        <span class="n">fenetre</span><span class="o">.</span><span class="n">attributes</span><span class="p">(</span><span class="s1">'-topmost'</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="n">choix</span> <span class="o">=</span> <span class="n">filedialog</span><span class="o">.</span><span class="n">askdirectory</span><span class="p">(</span>
+            <span class="n">parent</span><span class="o">=</span><span class="n">fenetre</span><span class="p">,</span> <span class="n">mustexist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="s1">'Projet P8 : sélectionnez le dossier contenant data et livrables'</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">choix</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="k">if</span> <span class="n">choix</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="p">(</span><span class="n">tk</span><span class="o">.</span><span class="n">TclError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">fenetre</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fenetre</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_manquants</span><span class="p">(</span><span class="n">dossier</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">nom</span> <span class="k">for</span> <span class="n">nom</span> <span class="ow">in</span> <span class="n">FICHIERS</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">dossier</span> <span class="o">/</span> <span class="n">nom</span><span class="p">)</span><span class="o">.</span><span class="n">is_file</span><span class="p">()]</span>
+
+
+<span class="n">donnees_explicites</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">DOSSIER_DONNEES</span><span class="p">)</span><span class="o">.</span><span class="n">expanduser</span><span class="p">()</span> <span class="k">if</span> <span class="n">DOSSIER_DONNEES</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="k">if</span> <span class="n">donnees_explicites</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">donnees_explicites</span><span class="o">.</span><span class="n">is_absolute</span><span class="p">()</span> <span class="ow">and</span> <span class="n">_manquants</span><span class="p">(</span><span class="n">donnees_explicites</span><span class="p">):</span>
     <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
-        <span class="sa">f</span><span class="s2">"Les trois classeurs sont nécessaires. Dossier de travail : </span><span class="si">{</span><span class="n">DEPART</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">"</span>
-        <span class="s2">"Agencement recommandé : &lt;projet&gt;/data/raw/ et &lt;projet&gt;/livrables/.</span><span class="se">\n</span><span class="s2">"</span>
-        <span class="s2">"Vérifiez DOSSIER_DONNEES, ou laissez-le à None pour la recherche automatique.</span><span class="se">\n</span><span class="s2">"</span>
-        <span class="sa">f</span><span class="s2">"Dossiers vérifiés :</span><span class="se">\n</span><span class="si">{</span><span class="n">diagnostic</span><span class="si">}</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s1">'DOSSIER_DONNEES = </span><span class="si">{</span><span class="n">donnees_explicites</span><span class="si">}</span><span class="s1"> : fichiers manquants = '</span>
+        <span class="o">+</span> <span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_manquants</span><span class="p">(</span><span class="n">donnees_explicites</span><span class="p">))</span>
     <span class="p">)</span>
+
+<span class="k">if</span> <span class="n">DOSSIER_PROJET</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">projet_explicite</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">DOSSIER_PROJET</span><span class="p">)</span><span class="o">.</span><span class="n">expanduser</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">projet_explicite</span><span class="o">.</span><span class="n">is_absolute</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'DOSSIER_PROJET doit être un chemin absolu, copié depuis PyCharm.'</span><span class="p">)</span>
+    <span class="n">RACINE</span> <span class="o">=</span> <span class="n">_racine_depuis</span><span class="p">(</span><span class="n">projet_explicite</span><span class="p">)</span> <span class="k">if</span> <span class="n">projet_explicite</span><span class="o">.</span><span class="n">is_dir</span><span class="p">()</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">RACINE</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Projet introuvable dans DOSSIER_PROJET = </span><span class="si">{</span><span class="n">projet_explicite</span><span class="si">}</span><span class="s1">.'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># PyCharm peut lancer le noyau dans System32. Son interpréteur .venv</span>
+    <span class="c1"># permet alors de retrouver le projet, sans dépendre du dossier courant.</span>
+    <span class="n">ancrages</span> <span class="o">=</span> <span class="p">[</span><span class="n">DEPART</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">prefix</span><span class="p">),</span> <span class="n">Path</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">donnees_explicites</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">donnees_explicites</span><span class="o">.</span><span class="n">is_absolute</span><span class="p">():</span>
+        <span class="n">ancrages</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">donnees_explicites</span><span class="p">)</span>
+    <span class="n">racines</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">racine</span> <span class="k">for</span> <span class="n">ancrage</span> <span class="ow">in</span> <span class="n">ancrages</span>
+                                <span class="k">if</span> <span class="p">(</span><span class="n">racine</span> <span class="o">:=</span> <span class="n">_racine_depuis</span><span class="p">(</span><span class="n">ancrage</span><span class="p">))</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">racines</span><span class="p">:</span>
+        <span class="c1"># Ces variables peuvent provenir d'un ancien terminal : utiliser d'abord le noyau réel.</span>
+        <span class="n">racines</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">racine</span> <span class="k">for</span> <span class="n">cle</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'VIRTUAL_ENV'</span><span class="p">,</span> <span class="s1">'CONDA_PREFIX'</span><span class="p">)</span>
+                                    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">cle</span><span class="p">)</span>
+                                    <span class="k">if</span> <span class="p">(</span><span class="n">racine</span> <span class="o">:=</span> <span class="n">_racine_depuis</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">cle</span><span class="p">]))</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">racines</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s1">'Plusieurs projets sont possibles : '</span> <span class="o">+</span> <span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">racines</span><span class="p">))</span>
+            <span class="o">+</span> <span class="s1">'. Renseignez DOSSIER_PROJET avec le chemin absolu du projet ouvert dans PyCharm.'</span>
+        <span class="p">)</span>
+    <span class="n">RACINE</span> <span class="o">=</span> <span class="n">racines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">racines</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">RACINE</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">selection</span> <span class="o">=</span> <span class="n">_choisir_projet_windows</span><span class="p">()</span>
+        <span class="n">RACINE</span> <span class="o">=</span> <span class="n">_racine_depuis</span><span class="p">(</span><span class="n">selection</span><span class="p">)</span> <span class="k">if</span> <span class="n">selection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="n">RACINE</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">'Le noyau démarre dans </span><span class="si">{</span><span class="n">DEPART</span><span class="si">}</span><span class="s1">, hors du projet. Aucun dossier de sortie n’a été créé.</span><span class="se">\n</span><span class="s1">'</span>
+            <span class="s1">'Dans PyCharm : clic droit sur le dossier racine du projet &gt; Copy Path/Reference &gt; Absolute Path.</span><span class="se">\n</span><span class="s1">'</span>
+            <span class="s2">"Collez ce chemin dans DOSSIER_PROJET = r'C:/chemin/vers/votre/projet', puis relancez toutes les cellules.</span><span class="se">\n</span><span class="s2">"</span>
+            <span class="s1">'Laissez DOSSIER_DONNEES = None. Le dossier choisi doit contenir data/ et livrables/.'</span>
+        <span class="p">)</span>
+
+<span class="k">if</span> <span class="n">donnees_explicites</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">candidats</span> <span class="o">=</span> <span class="p">[</span><span class="n">RACINE</span> <span class="o">/</span> <span class="s1">'data'</span> <span class="o">/</span> <span class="s1">'raw'</span><span class="p">,</span> <span class="n">RACINE</span> <span class="o">/</span> <span class="s1">'livrables'</span> <span class="o">/</span> <span class="s1">'data'</span> <span class="o">/</span> <span class="s1">'raw'</span><span class="p">]</span>
+<span class="k">elif</span> <span class="n">donnees_explicites</span><span class="o">.</span><span class="n">is_absolute</span><span class="p">():</span>
+    <span class="n">candidats</span> <span class="o">=</span> <span class="p">[</span><span class="n">donnees_explicites</span><span class="p">]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Accepter data/raw depuis la racine et ../data/raw depuis livrables,</span>
+    <span class="c1"># même si le noyau tourne dans System32. Le chemin explicite reste prioritaire.</span>
+    <span class="n">candidats</span> <span class="o">=</span> <span class="p">[</span><span class="n">base</span> <span class="o">/</span> <span class="n">donnees_explicites</span> <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="p">(</span><span class="n">RACINE</span><span class="p">,</span> <span class="n">RACINE</span> <span class="o">/</span> <span class="s1">'livrables'</span><span class="p">,</span> <span class="n">DEPART</span><span class="p">)]</span>
+<span class="n">candidats</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">candidats</span><span class="p">))</span>
+<span class="n">complets</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">candidats</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">_manquants</span><span class="p">(</span><span class="n">d</span><span class="p">)]</span>
+<span class="k">if</span> <span class="n">donnees_explicites</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">complets</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'DOSSIER_DONNEES relatif est ambigu : indiquez un chemin absolu parmi '</span> <span class="o">+</span> <span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">complets</span><span class="p">)))</span>
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="n">complets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">complets</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="k">if</span> <span class="n">DATA_DIR</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">diagnostic</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">'- </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s1"> : fichiers manquants = '</span> <span class="o">+</span> <span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_manquants</span><span class="p">(</span><span class="n">d</span><span class="p">))</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">candidats</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s1">'Projet détecté : </span><span class="si">{</span><span class="n">RACINE</span><span class="si">}</span><span class="s1">. Dossier de travail du noyau : </span><span class="si">{</span><span class="n">DEPART</span><span class="si">}</span><span class="s1">.</span><span class="se">\n</span><span class="s1">'</span>
+        <span class="s1">'Vérifiez DOSSIER_DONNEES, ou laissez-le à None pour lire &lt;projet&gt;/data/raw/.</span><span class="se">\n</span><span class="s1">'</span>
+        <span class="sa">f</span><span class="s1">'Dossiers vérifiés :</span><span class="se">\n</span><span class="si">{</span><span class="n">diagnostic</span><span class="si">}</span><span class="s1">'</span>
+    <span class="p">)</span>
+
+<span class="c1"># Ne créer les exports qu'après validation de la racine et des trois sources.</span>
 <span class="n">DOSSIER_RESULTATS</span> <span class="o">=</span> <span class="n">RACINE</span> <span class="o">/</span> <span class="s1">'livrables'</span>
 <span class="n">DOSSIER_FIGURES</span> <span class="o">=</span> <span class="n">DOSSIER_RESULTATS</span> <span class="o">/</span> <span class="s1">'figures'</span>
 <span class="n">DOSSIER_FIGURES</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Dossier de travail : </span><span class="si">{</span><span class="n">DEPART</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Dossier de travail du noyau : </span><span class="si">{</span><span class="n">DEPART</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Racine du projet : </span><span class="si">{</span><span class="n">RACINE</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Trois fichiers sources trouvés dans : </span><span class="si">{</span><span class="n">DATA_DIR</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Exports dans : </span><span class="si">{</span><span class="n">DOSSIER_RESULTATS</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+
 
 <span class="k">def</span><span class="w"> </span><span class="nf">verifier_colonnes</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">colonnes</span><span class="p">,</span> <span class="n">nom</span><span class="p">):</span>
     <span class="n">manquantes</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">colonnes</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
@@ -8100,7 +8186,8 @@ silencieusement un autre dossier.</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Dossier de travail : &lt;projet&gt;/livrables
+<pre>Dossier de travail du noyau : &lt;dossier extérieur au projet&gt;
+Racine du projet : &lt;projet&gt;
 Trois fichiers sources trouvés dans : &lt;projet&gt;/data/raw
 Exports dans : &lt;projet&gt;/livrables
 </pre>

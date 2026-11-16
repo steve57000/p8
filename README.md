@@ -91,14 +91,42 @@ python -m pip install -r requirements.txt
 python -m nbconvert --execute --to notebook --inplace livrables/Bell_Steve_1_Notebook_102026.ipynb
 ```
 
-Le notebook fonctionne depuis la racine ou depuis `livrables`. Laisser `DOSSIER_DONNEES = None`
-pour qu’il retrouve automatiquement `data/raw/`. L’ancien emplacement `livrables/data/raw/`
-reste reconnu. Les CSV et graphiques sont toujours écrits dans `livrables/`, sans créer
-de dossier `livrables/livrables/`. Le paramètre `DOSSIER_DONNEES` permet de choisir un autre
-emplacement ; un chemin relatif est interprété depuis le dossier de travail du noyau.
-Un chemin explicite incomplet affiche les fichiers manquants et ne choisit pas silencieusement
-un autre emplacement.
+Laisser `DOSSIER_PROJET = None` et `DOSSIER_DONNEES = None` pour la détection automatique.
+Le notebook fonctionne depuis la racine ou depuis `livrables`, et peut aussi retrouver
+le projet lorsque le noyau démarre ailleurs, grâce à l’interpréteur installé dans son `.venv`.
+La racine est vérifiée par la présence du notebook. Les variables d’environnement de terminal
+ne sont consultées qu’en dernier recours, car elles peuvent être périmées.
+
+Les données sont lues dans `data/raw/` ; l’ancien emplacement `livrables/data/raw/` reste reconnu.
+Les CSV et graphiques sont toujours écrits dans le `livrables/` du projet validé.
+Le paramètre `DOSSIER_DONNEES` permet de choisir un autre emplacement. Les chemins relatifs
+`data/raw` et `../data/raw` sont vérifiés depuis la racine et le dossier du notebook,
+puis depuis le dossier de travail du noyau. En cas d’ambiguïté, un chemin absolu est demandé.
+Un chemin explicite incomplet affiche les fichiers manquants sans choisir un autre emplacement.
 Dans l’éditeur, utiliser « Redémarrer le noyau et exécuter toutes les cellules ».
+
+### PyCharm : le noyau démarre dans `C:\Windows\System32`
+
+Le dossier de travail du noyau n’est pas nécessairement celui du notebook.
+L’interpréteur du `.venv` placé dans le projet permet maintenant de retrouver la racine
+même dans ce cas. Si aucune piste ne permet de retrouver le projet, une fenêtre Windows
+demande de sélectionner **le dossier qui contient `data/` et `livrables/`**.
+
+Si la fenêtre ne s’ouvre pas, est annulée, ou si plusieurs projets sont détectés :
+
+1. Dans PyCharm, clic droit sur le dossier racine du projet → **Copy Path/Reference → Absolute Path**.
+2. Coller ce chemin dans la cellule de paramètres, par exemple :
+
+   ```python
+   DOSSIER_PROJET = r"C:/MesProjets/p8"  # Remplacer par le chemin copié dans PyCharm.
+   DOSSIER_DONNEES = None
+   ```
+
+3. Redémarrer le noyau et exécuter toutes les cellules.
+
+Le sélecteur utilise `tkinter`, inclus dans l’installation Python Windows classique.
+Sur un serveur ou sans interface graphique, renseigner directement `DOSSIER_PROJET`.
+Aucun dossier de sortie n’est créé tant que le projet et les trois sources ne sont pas validés.
 
 Sous Windows, en cas de `WinError 206`, créer l’environnement dans un chemin court :
 
@@ -116,6 +144,19 @@ Les 32 cellules ont été exécutées intégralement deux fois avec `nbclient`, 
 Jupyter neufs : depuis la racine, puis depuis `livrables`, avec `data/raw` à la racine.
 Les deux exécutions ont réussi, avec neuf figures et aucune erreur. La détection de l’ancien
 agencement et les messages d’erreur pour un chemin explicite incorrect ont aussi été vérifiés.
+Après reproduction du problème PyCharm, deux exécutions intégrales supplémentaires ont été
+effectuées depuis un dossier extérieur au projet, dans un vrai `.venv` du projet :
+`DOSSIER_DONNEES = None`, puis `DOSSIER_DONNEES = '../data/raw'`.
+Les 32 cellules et neuf figures passent dans les deux cas, et aucun fichier n’est écrit
+dans le dossier de démarrage extérieur. Les cas de chemins explicites, d’ambiguïté,
+d’annulation et d’absence du sélecteur sont couverts par les tests de régression :
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+La boîte de dialogue Windows est testée par simulation ; un poste Windows natif n’est pas
+disponible dans l’environnement Linux de vérification.
 Le notebook exécuté et sa version HTML ont été enregistrés ; le rendu HTML a été inspecté.
 Les principaux calculs ont été reproduits indépendamment à partir des trois classeurs.
 Le PowerPoint a été ouvert par LibreOffice, exporté en PDF et ses 18 diapositives inspectées.
