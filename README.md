@@ -3,13 +3,15 @@
 Analyse des ventes parisiennes de 2017 à 2021, régression linéaire de la valeur foncière,
 valorisation du portefeuille au 31 décembre 2022 et classement exploratoire des opportunités de Louise.
 
-## Notebook révisé le 16 novembre 2026
+## Présentation et notebook révisés le 16 novembre 2026
 
 Le notebook principal reprend les cinq étapes du modèle fourni, avec 32 cellules de code exécutées,
 neuf graphiques, des interprétations et un tableau de couverture des consignes.
 
 - [Notebook principal](livrables/Bell_Steve_1_Notebook_102026.ipynb)
 - [Version HTML à télécharger pour une lecture sans Python](livrables/Bell_Steve_1_Notebook_102026.html)
+- [Présentation PowerPoint — 18 diapositives](livrables/Bell_Steve_2_presentation_102026.pptx)
+- [Présentation PDF](livrables/Bell_Steve_2_presentation_102026.pdf)
 - [Valorisation des 275 actifs](livrables/predictions_valorisation_portefeuille_2022-12-31.csv)
 - [Classement provisoire des 40 opportunités](livrables/classification_echantillon_louise_102026.csv)
 - [Synthèse des segments](livrables/synthese_valorisation_segments.csv)
@@ -17,9 +19,10 @@ neuf graphiques, des interprétations et un tableau de couverture des consignes.
 - [Notes de soutenance actualisées](livrables/NOTES_SOUTENANCE.md)
 - [Graphiques](livrables/figures/)
 
-Le nom du notebook est conservé pour maintenir les liens existants ; son contenu correspond à la révision de novembre.
-Le [PowerPoint d’octobre](livrables/Bell_Steve_2_presentation_102026.pptx) contient encore les anciens résultats :
-il doit être actualisé avant une soutenance. Le notebook et les notes ci-dessus font référence pour cette révision.
+Les noms des fichiers sont conservés pour maintenir les liens existants ; leur contenu correspond
+à la révision de novembre. La présentation a été entièrement recomposée : identité visuelle
+vert profond et ivoire, photographie de Paris, neuf graphiques éditables, résultats actualisés
+et notes de soutenance dans chacune des 18 diapositives. Le PDF permet de vérifier la mise en page.
 
 ## Résultats et limites
 
@@ -61,6 +64,23 @@ L’échantillon provient des [ressources OpenClassrooms](https://s3.eu-west-1.a
 Les empreintes des sources et les versions des bibliothèques sont enregistrées dans `livrables/sources_sha256.csv`
 et `livrables/environnement.json`.
 
+Conserver cette arborescence après extraction du ZIP :
+
+```text
+p8_corrige/
+  data/
+    raw/                 # Les trois classeurs Excel
+  livrables/
+    Bell_Steve_1_Notebook_102026.ipynb
+    Bell_Steve_1_Notebook_102026.html
+    Bell_Steve_2_presentation_102026.pptx
+    Bell_Steve_2_presentation_102026.pdf
+    figures/             # Graphiques du notebook
+    ...                  # CSV, versions, notes de soutenance
+  requirements.txt
+  README.md
+```
+
 ## Installation et exécution
 
 Python 3.12 a été utilisé pour vérifier le projet. Ouvrir la racine du dépôt dans PyCharm,
@@ -71,8 +91,13 @@ python -m pip install -r requirements.txt
 python -m nbconvert --execute --to notebook --inplace livrables/Bell_Steve_1_Notebook_102026.ipynb
 ```
 
-Le notebook fonctionne depuis la racine ou depuis `livrables`. Il retrouve `data/raw/` et écrit
-les CSV et graphiques dans `livrables/`. Le paramètre `DOSSIER_DONNEES` permet de choisir un autre emplacement.
+Le notebook fonctionne depuis la racine ou depuis `livrables`. Laisser `DOSSIER_DONNEES = None`
+pour qu’il retrouve automatiquement `data/raw/`. L’ancien emplacement `livrables/data/raw/`
+reste reconnu. Les CSV et graphiques sont toujours écrits dans `livrables/`, sans créer
+de dossier `livrables/livrables/`. Le paramètre `DOSSIER_DONNEES` permet de choisir un autre
+emplacement ; un chemin relatif est interprété depuis le dossier de travail du noyau.
+Un chemin explicite incomplet affiche les fichiers manquants et ne choisit pas silencieusement
+un autre emplacement.
 Dans l’éditeur, utiliser « Redémarrer le noyau et exécuter toutes les cellules ».
 
 Sous Windows, en cas de `WinError 206`, créer l’environnement dans un chemin court :
@@ -87,8 +112,16 @@ Choisir ensuite `C:\venvs\p8\Scripts\python.exe` dans PyCharm.
 
 ## Vérification
 
-Les 32 cellules ont été exécutées dans l’ordre dans une session IPython neuve,
-avec sorties et graphiques enregistrés. Les principaux calculs de corrélation, de régression et de valorisation
-ont été recoupés indépendamment, et les rendus statiques inspectés.
-Le lancement d’un noyau Jupyter séparé étant restreint dans l’environnement de vérification,
-la validation y utilise une exécution séquentielle IPython.
+Les 32 cellules ont été exécutées intégralement deux fois avec `nbclient`, dans des noyaux
+Jupyter neufs : depuis la racine, puis depuis `livrables`, avec `data/raw` à la racine.
+Les deux exécutions ont réussi, avec neuf figures et aucune erreur. La détection de l’ancien
+agencement et les messages d’erreur pour un chemin explicite incorrect ont aussi été vérifiés.
+Le notebook exécuté et sa version HTML ont été enregistrés ; le rendu HTML a été inspecté.
+Les principaux calculs ont été reproduits indépendamment à partir des trois classeurs.
+Le PowerPoint a été ouvert par LibreOffice, exporté en PDF et ses 18 diapositives inspectées.
+
+Les fichiers de départ ont été récupérés directement dans le dépôt
+[`steve57000/p8`](https://github.com/steve57000/p8), branche `master`,
+révision `f5ac63618ccaa14fe09c7652e4bccfe89be00ab2`. Les classeurs bruts sont inchangés.
+La photographie de couverture provient d’Unsplash (identifiant `photo-1502602898657-3e91760cbb34`) ;
+elle sert uniquement d’illustration.
