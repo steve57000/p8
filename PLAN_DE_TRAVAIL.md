@@ -1,32 +1,44 @@
-# Projet OpenClassrooms 1591 — état et points à terminer
+# Projet OpenClassrooms 1591 — état au 16 novembre 2026
 
-## Travail réalisé et vérifié
+## Révision du notebook terminée
 
-- Profilage des données historiques : 26 196 lignes, deux types de biens, aucune valeur manquante, période du 02/01/2017 au 31/12/2021. Seize lignes sont entièrement identiques; elles sont conservées faute d’identifiant de transaction.
-- Analyses du marché : évolution du prix moyen au m² des appartements, comparaison par arrondissement, détail des mutations du 6e arrondissement, corrélations prix/date et prix/surface, comparaison appartements/locaux.
-- Régression linéaire évaluée avec une séparation manuelle chronologique : apprentissage 2017–2020 (21 128 lignes), test 2021 (5 068 lignes). L’erreur absolue relative moyenne du prix total est de 7,87 %; le biais moyen est de +7,86 %, donc les prédictions surestiment en moyenne les valeurs du test.
-- Valorisation estimée au 31/12/2022 et export des 275 biens dans `livrables/predictions_valorisation_portefeuille_2022-12-31.csv`.
-- Échantillon OpenClassrooms de 40 opportunités ajouté dans `data/raw/echantillon_a_classer2.xlsx`; le notebook produit leur classement K-means dans un CSV.
-- Support de présentation de 9 diapositives, dans le modèle fourni et sous la limite de 20 diapositives.
+- Les cinq étapes du modèle fourni sont complétées et organisées ; neuf graphiques sont présents.
+- Profil historique : 26 196 lignes, deux types de biens, aucune valeur manquante ; période du 02/01/2017 au 31/12/2021.
+- Les 16 répétitions exactes sont conservées dans la description et exclues de la base de modélisation.
+- Pearson prix au m²/date porte sur les 709 appartements du 6e arrondissement : r = 0,904.
+- La relation valeur foncière/surface est distinguée de la relation prix au m²/surface.
+- La régression prédit directement la valeur foncière et respecte le test de 33 % demandé : MAPE 9,14 %.
+- Un contrôle chronologique apprend sur 2017–2020 et teste 2021 : MAPE 13,62 %, biais relatif moyen +12,81 %.
+- Le modèle final est réentraîné sur l’ensemble de l’historique distinct 2017–2021.
+- Les 275 actifs sont estimés au 31/12/2022 avec leur surface réelle bâtie : 169,70 M€ au total.
+- Sous la convention appartements = particuliers et locaux = corporate, les valorisations sont 71,22 M€ et 98,48 M€.
+- K-means est ajusté sur les 40 opportunités de Louise, avec le seul prix au m² : deux groupes de 20 biens, silhouette 0,909.
+- Les CSV, figures, notes de soutenance et README sont synchronisés avec ces résultats.
 
-## Résultats K-means et limites
+## Validation réalisée
 
-- K-means est ajusté sur le prix au m² des transactions 2017–2020; les libellés des transactions d’apprentissage servent uniquement à donner un nom interprétable aux deux groupes.
-- Sur les ventes tenues à l’écart en 2021 : précision « local » 23,3 %, rappel 73,6 %, exactitude globale 80,1 %. Un classement systématique en appartement atteint 92,6 % d’exactitude sur ce jeu déséquilibré. Ce K-means n’est donc pas assez fiable pour automatiser une décision d’achat.
-- Les 40 opportunités de l’échantillon sont dans le 19e arrondissement et sont toutes estimées « appartement ». Ce résultat est provisoire et n’est pas validé par une étiquette de référence.
+Les 32 cellules de code ont été exécutées dans l’ordre sous IPython sans erreur.
+Le format du notebook, les totaux, les exports, les graphiques et les principaux calculs ont été contrôlés.
+Les fichiers sources restent inchangés.
 
-## À obtenir pour terminer la validation officielle
+## Points restant à confirmer
 
-Récupérer auprès de l’équipe de Louise les étiquettes réelles correspondant aux 40 biens, puis comparer ces étiquettes aux résultats K-means dans le notebook et mettre à jour la présentation. Sans ce fichier, la précision de classement sur les opportunités réelles ne peut pas être calculée.
+1. Obtenir les types réels de Louise et les dates des 40 opportunités. Sans labels réels,
+   l’exactitude du classement ne peut pas être mesurée. La section 4.5 est prête à les recevoir.
+2. Expliquer le décalage du groupe de prix bas, dont le centre est 16,1 % sous la moyenne
+   historique des appartements du 19e arrondissement en 2021.
+3. Confirmer les segments de l’entreprise et vérifier les deux répétitions exactes du portefeuille.
+4. Actualiser le PowerPoint d’octobre avant la soutenance : il contient encore les anciens résultats.
 
-## Hypothèses à signaler
+## Limites à présenter
 
-1. Les lignes historiques sont comptées comme transactions; les 16 lignes identiques ne peuvent pas être distinguées sans identifiant dédié.
-2. Le modèle prédit le logarithme du prix au m², puis reconstruit la valeur totale par multiplication par la surface réelle.
-3. Le test sur 2021 est rétrospectif. Le biais moyen positif doit être mentionné; le résultat ne garantit pas la précision sur le portefeuille en 2022.
-4. La valorisation du portefeuille est ventilée par type de bien, faute de colonne de branche dans le fichier.
-5. Les fichiers ne décrivent pas l’état, l’étage, le DPE ni la nature détaillée des locaux.
+- Comptage de lignes sans identifiant de mutation ; corrélations descriptives, sans interprétation causale.
+- Prévision 2022 au-delà de l’historique, avec un biais déjà observé au test chronologique.
+- Absence d’état du bien, d’étage, de DPE et de nature détaillée des locaux.
+- Les numéros des clusters ne sont pas des types de biens. Les labels proposés sont des hypothèses.
+- La silhouette décrit la séparation des groupes ; elle ne mesure pas leur justesse métier.
 
 ## Exécution
 
-Depuis la racine du dépôt, installer les dépendances de `requirements.txt`, puis exécuter `livrables/Bell_Steve_1_Notebook_102026.ipynb`. Le notebook sait résoudre ses chemins depuis la racine du dépôt ou depuis le dossier `livrables`.
+Depuis la racine, installer `requirements.txt`, puis exécuter toutes les cellules de
+`livrables/Bell_Steve_1_Notebook_102026.ipynb`. Les exports sont écrits dans `livrables/`.
