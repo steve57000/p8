@@ -10,6 +10,8 @@ quinze graphiques lisibles, des interprétations et un tableau de couverture des
 
 - [Notebook principal](livrables/Bell_Steve_1_Notebook_102026.ipynb)
 - [Version HTML à télécharger pour une lecture sans Python](livrables/Bell_Steve_1_Notebook_102026.html)
+- [Guide pédagogique pas à pas — PDF](livrables/Guide_pedagogique_notebook_P8.pdf)
+- [Guide pédagogique — version texte](livrables/Guide_pedagogique_notebook_P8.md)
 - [Présentation PowerPoint — 18 diapositives](livrables/Bell_Steve_2_presentation_102026.pptx)
 - [Présentation PDF](livrables/Bell_Steve_2_presentation_102026.pdf)
 - [Valorisation des 275 actifs](livrables/predictions_valorisation_portefeuille_2022-12-31.csv)
@@ -31,6 +33,20 @@ puis un classement des 20 moyennes de 2021 avec les valeurs affichées.
 Tous les graphiques utilisent un fond clair explicite, y compris dans PyCharm en thème sombre.
 Les légendes ont une police de 12 points et une place réservée hors des courbes.
 Les nuages de points et diagnostics auparavant côte à côte sont présentés séparément.
+
+## Apprendre avec le notebook
+
+Le guide PDF accompagne la version du notebook au commit `af48835` : 35 fiches couvrent
+les 32 cellules de code et les parties rédigées. Il décrit les imports, les fonctions,
+les opérations, les résultats à observer et les points à retenir. Des vérifications
+et 35 questions avec corrigés permettent de travailler étape par étape.
+
+Le sommaire cliquable et les signets relient les sections du guide aux numéros du notebook.
+Les annexes recensent les 37 imports, les 11 fonctions personnelles et les repères de syntaxe.
+La correspondance avec les cinq jalons OpenClassrooms a été vérifiée dans le
+[notebook modèle officiel](https://s3.eu-west-1.amazonaws.com/course.oc-static.com/projects/Business+Intelligence+Analyst/BIA_project+8/BIA_P8_Student_Version.ipynb).
+Les compléments méthodologiques sont distingués des demandes du modèle.
+Le guide est un document d’apprentissage indépendant ; les calculs restent dans le notebook.
 
 ## Résultats et limites
 
